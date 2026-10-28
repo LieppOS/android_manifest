@@ -45,10 +45,11 @@ Ten GitHub repositories are currently empty. Nine are Android platform projects
 and are listed in `pending-projects.md`; the tenth is this manifest repository
 itself. They are intentionally absent from `default.xml`.
 
-The kernel source is staged locally in
-`android/kernel/ulefone/gq5012bf1` from the verified C46 worktree, but its GitHub
-repository has no pushed commit. It cannot be an active manifest project until
-that history is published with owner approval.
+No kernel source is present in the workspace. The kernel repository is an empty
+clone; a staging attempt was withdrawn because the external C45/C46 source
+contains private-key PEM files. It cannot be an active manifest project until a
+source-only import is reviewed, published with owner approval, and pinned. See
+[`KERNEL-IMPORT-BLOCKER.md`](../../docs/integration/KERNEL-IMPORT-BLOCKER.md).
 
 ## Using the manifest later
 

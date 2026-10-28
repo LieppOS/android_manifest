@@ -6,7 +6,7 @@ a real commit exists and the path mapping is reviewed.
 
 | Repository | Intended Android path | State | Reason |
 | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `REMOTE_EMPTY` | C45/C46 source is staged only in the local workspace; remote has no commit |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `REMOTE_EMPTY` | External C45/C46 source is not importable while it contains private-key PEM files; remote has no commit |
 | `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `REMOTE_EMPTY` | Source audit and split not complete |
 | `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `REMOTE_EMPTY` | Board modules still live in the combined kernel tree |
 | `android_hardware_mediatek_mt6878` | `hardware/mediatek/mt6878` | `REMOTE_EMPTY` | No verified HAL source imported |
@@ -28,4 +28,5 @@ Before moving a row into `default.xml`:
 - [ ] The project does not duplicate source owned by another repository.
 - [ ] Licence and provenance are recorded.
 - [ ] Any proprietary content is isolated and not misrepresented as open source.
+- [ ] No signing key, calibration data, NVRAM, or device-unique secret is present.
 - [ ] The pinned SHA is recorded in `ACTIVE-BUILD-PROVENANCE.md`.
