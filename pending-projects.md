@@ -14,7 +14,7 @@ therefore not remotely resolvable.
 | `android_hardware_mediatek_mt6878` | `hardware/mediatek/mt6878` | `REMOTE_EMPTY` | — | No verified HAL source imported |
 | `android_hardware_ulefone_gq5012bf1` | `hardware/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | No verified board HAL source imported |
 | `android_vendor_mediatek_mt6878` | `vendor/mediatek/mt6878` | `REMOTE_EMPTY` | — | Proprietary compatibility boundary unresolved |
-| `android_vendor_ulefone_gq5012bf1` | `vendor/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | Proprietary compatibility boundary unresolved |
+| `android_vendor_ulefone_gq5012bf1` | `vendor/ulefone/gq5012bf1` | `LOCAL_CONFIG_ONLY` | `2685239653933c48324e2b179475198271090332` | Generated extract-utils configuration committed locally on `integration/c52-device-vendor`; no blob payload is committed and the remote remains empty |
 | `android_recovery_ulefone_gq5012bf1` | `recovery/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | OrangeFox is a separate verified project outside this path |
 | `android_tools_ulefone_gq5012bf1` | `tools/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | Build/AVB tools still live in research and campaign trees |
 
@@ -35,6 +35,17 @@ reachable from GitHub and must not appear in `default.xml` or
 `publication-candidate.xml` until they are pushed and verified. See
 `docs/integration/C49-SOURCE-INTEGRATION.md` and
 `docs/integration/C50-PUBLICATION-READINESS.md` in the LieppOS workspace.
+
+## C52 local device/vendor integration (not published)
+
+| Repository | Local branch | Local commit | Parent | Change |
+| --- | --- | --- | --- | --- |
+| `android_device_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `158ec06a1b0b163d0c2ee2b0c0582743f4c07430` | `58e7e2d1` (published `master`) | Android 17 product evaluation, stock-vendor compatibility matrix and VNDK 34, stock vbmeta split, disabled C51 vibrator exclusions |
+| `android_vendor_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `2685239653933c48324e2b179475198271090332` | none (unborn `main`) | Generated vendor configuration only; proprietary payload gitignored |
+
+Neither commit is reachable from GitHub. The vendor repository remote is empty,
+so the vendor path is not remotely syncable. See
+`docs/integration/C52-DEVICE-VENDOR-INTEGRATION.md` in the LieppOS workspace.
 
 ## Superseded C47 local commits
 

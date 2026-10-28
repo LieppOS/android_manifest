@@ -7,6 +7,11 @@
   they are not reachable from GitHub. The Ulefone mirror revision is the
   published C48 commit (no Ulefone-owned source changed in C49 or C50).
 
+  C52 local device/vendor integration. The device and vendor revisions below
+  are LOCAL-ONLY commits on integration/c52-device-vendor. The vendor commit
+  is configuration-only: its proprietary/ payload is gitignored and must be
+  extracted locally from the owner stock dump.
+
     kernel   27a31fbc  <- 5e7efb0d <- 53944a0a (C50)
                        <- 188eae96 <- e62fd25e (C49) <- d0feaaee (C48, published)
     mediatek cbc7ea9e  <- 9a3c6ef7 (C50) <- 16690470 (C49) <- 82b5cbcb (C48, published)
@@ -42,4 +47,15 @@
       path="kernel/modules/ulefone/gq5012bf1"
       name="android_kernel_modules_ulefone_gq5012bf1"
       revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f" />
+
+  <!-- C52 local device/vendor integration -->
+  <project
+      path="device/ulefone/gq5012bf1"
+      name="android_device_ulefone_gq5012bf1"
+      revision="158ec06a1b0b163d0c2ee2b0c0582743f4c07430" />
+
+  <project
+      path="vendor/ulefone/gq5012bf1"
+      name="android_vendor_ulefone_gq5012bf1"
+      revision="2685239653933c48324e2b179475198271090332" />
 </manifest>
