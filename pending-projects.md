@@ -8,9 +8,9 @@ therefore not remotely resolvable.
 
 | Repository | Intended Android path | State | Publication commit | Reason |
 | --- | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `49773672a57dede7d148a860cd36464ab2efe455` | Sanitized root snapshot; proprietary FPSGO wrapper and four firmware/calibration-bearing Ulefone drivers withheld; remote still empty |
-| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `aba3cf54bf64508419045b0aef5b44010a99a167` | Sanitized MediaTek mirror; FPSGO wrapper and Ulefone-owned paths excluded; remote still empty |
-| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` | `d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6` | Partial board mirror; FocalTech, Hynitron, tiny LCD and SH366003 withheld pending firmware/calibration licensing; remote still empty |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | Sanitized root snapshot; proprietary FPSGO wrapper and four firmware/calibration-bearing Ulefone drivers withheld; remote still empty |
+| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | Sanitized MediaTek mirror; FPSGO wrapper and Ulefone-owned paths excluded; remote still empty |
+| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | Partial board mirror; FocalTech, Hynitron, tiny LCD and SH366003 withheld pending firmware/calibration licensing; remote still empty |
 | `android_hardware_mediatek_mt6878` | `hardware/mediatek/mt6878` | `REMOTE_EMPTY` | — | No verified HAL source imported |
 | `android_hardware_ulefone_gq5012bf1` | `hardware/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | No verified board HAL source imported |
 | `android_vendor_mediatek_mt6878` | `vendor/mediatek/mt6878` | `REMOTE_EMPTY` | — | Proprietary compatibility boundary unresolved |

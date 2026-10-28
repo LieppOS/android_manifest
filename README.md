@@ -34,9 +34,9 @@ revision is reachable from GitHub.
 
 | Project | Path | Candidate revision | Scope |
 | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `49773672a57dede7d148a860cd36464ab2efe455` | Sanitized core snapshot |
-| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `aba3cf54bf64508419045b0aef5b44010a99a167` | Sanitized MediaTek mirror |
-| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6` | Partial board mirror |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | Sanitized core snapshot |
+| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | Sanitized MediaTek mirror |
+| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | Partial board mirror |
 
 The kernel and Ulefone mirrors are **partial**. The proprietary FPSGO private
 wrapper is excluded. Four Ulefone board drivers that embed vendor firmware, logo
@@ -65,9 +65,9 @@ sanitized publication commits, but their remotes are empty:
 
 | Repository | Publication commit | State |
 | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `49773672a57dede7d148a860cd36464ab2efe455` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
-| `android_kernel_modules_mediatek_mt6878` | `aba3cf54bf64508419045b0aef5b44010a99a167` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
-| `android_kernel_modules_ulefone_gq5012bf1` | `d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` |
+| `android_kernel_ulefone_gq5012bf1` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
+| `android_kernel_modules_mediatek_mt6878` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
+| `android_kernel_modules_ulefone_gq5012bf1` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` |
 
 [`local-development.xml`](local-development.xml) is a local ledger for those
 commits. It is intentionally not included by `default.xml` and is not a

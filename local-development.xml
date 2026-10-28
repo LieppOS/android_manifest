@@ -25,15 +25,15 @@
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="49773672a57dede7d148a860cd36464ab2efe455" />
+      revision="d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0" />
 
   <project
       path="kernel/modules/mediatek/mt6878"
       name="android_kernel_modules_mediatek_mt6878"
-      revision="aba3cf54bf64508419045b0aef5b44010a99a167" />
+      revision="82b5cbcbf4c54da198c01fa04c9dc6e92319e3af" />
 
   <project
       path="kernel/modules/ulefone/gq5012bf1"
       name="android_kernel_modules_ulefone_gq5012bf1"
-      revision="d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6" />
+      revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f" />
 </manifest>
