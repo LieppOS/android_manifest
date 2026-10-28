@@ -15,9 +15,14 @@
   LieppOS workspace.
 
   Project paths are disjoint. No GKI source is checked out twice.
+
+  C49 correction: the three kernel/module pins are reachable on the remote
+  publication/c48 branches (verified with git ls-remote); remote main branches
+  do not exist, so upstream="publication/c48" is recorded. The fetch URL now
+  uses the ssh://host/path form used by default.xml.
 -->
 <manifest>
-  <remote name="lieppos" fetch="ssh://git@github.com:LieppOS" />
+  <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
   <default revision="main" remote="lieppos" sync-j="4" />
 
   <project
@@ -33,15 +38,18 @@
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0" />
+      revision="d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0"
+      upstream="publication/c48" />
 
   <project
       path="kernel/modules/mediatek/mt6878"
       name="android_kernel_modules_mediatek_mt6878"
-      revision="82b5cbcbf4c54da198c01fa04c9dc6e92319e3af" />
+      revision="82b5cbcbf4c54da198c01fa04c9dc6e92319e3af"
+      upstream="publication/c48" />
 
   <project
       path="kernel/modules/ulefone/gq5012bf1"
       name="android_kernel_modules_ulefone_gq5012bf1"
-      revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f" />
+      revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f"
+      upstream="publication/c48" />
 </manifest>

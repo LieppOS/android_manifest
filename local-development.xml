@@ -2,35 +2,38 @@
 <!--
   LieppOS LOCAL DEVELOPMENT ledger, not an active or remotely syncable manifest.
 
-  The revisions below are the C48 sanitized publication-branch commits. They
-  exist only in the local workspace. The GitHub repositories are still empty,
-  so `repo sync` from GitHub cannot resolve them.
+  C49 local source integration. The kernel and MediaTek mirror revisions below
+  are LOCAL-ONLY commits on integration/c49-hardware-source-expansion; they are
+  not reachable from GitHub. The Ulefone mirror revision is the published C48
+  commit (no Ulefone-owned source changed in C49).
+
+    kernel   188eae96  <- e62fd25e <- d0feaaee (C48, published publication/c48)
+    mediatek 16690470  <- 82b5cbcb (C48, published publication/c48)
+    ulefone  0e00dda7  (C48, published publication/c48)
+
+  C49 adds vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met} to the
+  kernel and to the MediaTek mirror. The published C48 pins remain in
+  publication-candidate.xml.
 
   This file is deliberately NOT included by default.xml. Do not publish or use
   it as an active manifest until the owner approves the exact publication
   transaction and the commits are pushed and verified reachable.
 
-  The C47 local campaign branch (7a75e19e kernel, 83adb605 MediaTek mirror,
-  5fd5a275 Ulefone mirror) remains the local development record but is not the
-  publication source: its history contains a non-redistributable FPSGO private
-  wrapper, and the Ulefone sources embed vendor firmware/calibration images.
-
-  See pending-projects.md, publication-candidate.xml and
-  docs/integration/C48-MANIFEST-PUBLICATION-PLAN.md.
+  See pending-projects.md and docs/integration/C49-SOURCE-INTEGRATION.md.
 -->
 <manifest>
-  <remote name="lieppos" fetch="ssh://git@github.com:LieppOS" />
+  <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
   <default revision="main" remote="lieppos" sync-j="4" />
 
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0" />
+      revision="188eae962d2f6d6664cfaea0aca2b0d867f05668" />
 
   <project
       path="kernel/modules/mediatek/mt6878"
       name="android_kernel_modules_mediatek_mt6878"
-      revision="82b5cbcbf4c54da198c01fa04c9dc6e92319e3af" />
+      revision="16690470fe640b241cd16d20e2ecb3babfcaef11" />
 
   <project
       path="kernel/modules/ulefone/gq5012bf1"

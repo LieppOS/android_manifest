@@ -60,18 +60,21 @@ reproduce the core kernel, panel and `mtk-mmc`, but not a complete device build.
 ## Pending projects
 
 The nine Android platform projects that are not active are listed in
-`pending-projects.md`. The three kernel/module repositories now have local
-sanitized publication commits, but their remotes are empty:
+`pending-projects.md`. The three kernel/module repositories have published
+sanitized C48 commits on their remote `publication/c48` branches (verified with
+`git ls-remote` in C49); they are not yet promoted into `default.xml`:
 
 | Repository | Publication commit | State |
 | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
-| `android_kernel_modules_mediatek_mt6878` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
-| `android_kernel_modules_ulefone_gq5012bf1` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` |
+| `android_kernel_ulefone_gq5012bf1` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT` |
+| `android_kernel_modules_mediatek_mt6878` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT` |
+| `android_kernel_modules_ulefone_gq5012bf1` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT_PARTIAL` |
 
-[`local-development.xml`](local-development.xml) is a local ledger for those
-commits. It is intentionally not included by `default.xml` and is not a
-remotely syncable manifest.
+[`local-development.xml`](local-development.xml) is the local ledger. Since C49
+it pins the **local-only** C49 kernel (`188eae96`) and MediaTek mirror
+(`16690470`) commits that add the MediaTek vendor module sources. It is
+intentionally not included by `default.xml` and is not a remotely syncable
+manifest.
 
 The C47 source import was a snapshot with replayed C45/C46 patch commits. Its
 history is not published because it contains a non-redistributable FPSGO private

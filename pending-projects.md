@@ -8,9 +8,9 @@ therefore not remotely resolvable.
 
 | Repository | Intended Android path | State | Publication commit | Reason |
 | --- | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | Sanitized root snapshot; proprietary FPSGO wrapper and four firmware/calibration-bearing Ulefone drivers withheld; remote still empty |
-| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | Sanitized MediaTek mirror; FPSGO wrapper and Ulefone-owned paths excluded; remote still empty |
-| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | Partial board mirror; FocalTech, Hynitron, tiny LCD and SH366003 withheld pending firmware/calibration licensing; remote still empty |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT` | `d0feaaee4484e2fdd5cd87ebbf4c9e273a50b8b0` | Sanitized root snapshot on remote `publication/c48`; proprietary FPSGO wrapper and four firmware/calibration-bearing Ulefone drivers withheld |
+| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | Sanitized MediaTek mirror on remote `publication/c48`; FPSGO wrapper and Ulefone-owned paths excluded |
+| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT_PARTIAL` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | Partial board mirror on remote `publication/c48`; FocalTech, Hynitron, tiny LCD and SH366003 withheld pending firmware/calibration licensing |
 | `android_hardware_mediatek_mt6878` | `hardware/mediatek/mt6878` | `REMOTE_EMPTY` | — | No verified HAL source imported |
 | `android_hardware_ulefone_gq5012bf1` | `hardware/ulefone/gq5012bf1` | `REMOTE_EMPTY` | — | No verified board HAL source imported |
 | `android_vendor_mediatek_mt6878` | `vendor/mediatek/mt6878` | `REMOTE_EMPTY` | — | Proprietary compatibility boundary unresolved |
@@ -21,6 +21,19 @@ therefore not remotely resolvable.
 The `android_manifest` repository itself is also empty on GitHub. The local
 bootstrap manifest, `local-development.xml` and `publication-candidate.xml` are
 local commits and have not been pushed.
+
+## C49 local source integration (not published)
+
+| Repository | Local branch | Local commit | Parent (published) | Change |
+| --- | --- | --- | --- | --- |
+| `android_kernel_ulefone_gq5012bf1` | `integration/c49-hardware-source-expansion` | `188eae962d2f6d6664cfaea0aca2b0d867f05668` | `d0feaaee` | `e62fd25e` vendor module snapshot + `188eae96` closure fix and `tools/ulefone/gq5012bf1/{import,build}-vendor-modules.py` |
+| `android_kernel_modules_mediatek_mt6878` | `integration/c49-hardware-source-expansion` | `16690470fe640b241cd16d20e2ecb3babfcaef11` | `82b5cbcb` | Mirrors `vendor/mediatek/kernel_modules` from kernel `188eae96` |
+| `android_kernel_modules_ulefone_gq5012bf1` | — | `0e00dda7` (unchanged) | — | No Ulefone-owned source changed |
+
+These commits are recorded only in `local-development.xml`. They are not
+reachable from GitHub and must not appear in `default.xml` or
+`publication-candidate.xml` until they are pushed and verified. See
+`docs/integration/C49-SOURCE-INTEGRATION.md` in the LieppOS workspace.
 
 ## Superseded C47 local commits
 
@@ -52,9 +65,12 @@ absent.
 
 ## C48 blockers
 
-1. **No remote has the commits.** Kernel, MediaTek mirror, Ulefone mirror and
-   manifest remotes are empty. Publication requires owner approval and an
-   ordinary (non-force) push.
+1. **Promotion into `default.xml` is not approved.** (C49 correction: the
+   three C48 commits are reachable on the remote `publication/c48` branches and
+   the manifest `main` is at `30600049`; verified with `git ls-remote`.) The
+   remotes have no `main` branch, so `publication-candidate.xml` records
+   `upstream="publication/c48"`. Activating the candidate still requires owner
+   approval.
 2. **Firmware/calibration redistribution is unresolved.** The FocalTech FT3680
    firmware, Hynitron CST8xx firmware, tiny-LCD logo/init arrays and SH366003
    AFI image have no documented redistribution grant. They are withheld from the
