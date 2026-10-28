@@ -9,7 +9,7 @@
 
     kernel   27a31fbc  <- 5e7efb0d <- 53944a0a (C50)
                        <- 188eae96 <- e62fd25e (C49) <- d0feaaee (C48, published)
-    mediatek cbc7ea9e  <- 9a3c6efa (C50) <- 16690470 (C49) <- 82b5cbcb (C48, published)
+    mediatek cbc7ea9e  <- 9a3c6ef7 (C50) <- 16690470 (C49) <- 82b5cbcb (C48, published)
     ulefone  0e00dda7  (C48, published publication/c48)
 
   C49 adds vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met};
