@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LieppOS LOCAL DEVELOPMENT ledger, not an active or remotely syncable manifest.
+
+  The three kernel commits below exist only in the local workspace. Their GitHub
+  repositories are still empty, so `repo sync` from GitHub cannot resolve them.
+  This file is deliberately NOT included by default.xml. Do not publish or use it
+  as an active manifest until the owner approves publication and the commits are
+  pushed and verified reachable.
+
+  See pending-projects.md and docs/integration/C47-WORKSPACE-INTEGRATION.md.
+-->
+<manifest>
+  <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
+  <default revision="main" remote="lieppos" sync-j="4" />
+
+  <project
+      path="kernel/ulefone/gq5012bf1"
+      name="android_kernel_ulefone_gq5012bf1"
+      revision="c3bd65dcf7e2bf437f01783e120c8e7477cd788a" />
+
+  <project
+      path="kernel/modules/mediatek/mt6878"
+      name="android_kernel_modules_mediatek_mt6878"
+      revision="83adb6057cb20d71ab3cdac100c37910e70f5593" />
+
+  <project
+      path="kernel/modules/ulefone/gq5012bf1"
+      name="android_kernel_modules_ulefone_gq5012bf1"
+      revision="5fd5a2758d525b55bae4e354b32af4ce6c8c23e7" />
+</manifest>

@@ -41,15 +41,26 @@ This uses SSH, not HTTPS. Project `name` values are repository names under the
 
 ## Pending projects
 
-Ten GitHub repositories are currently empty. Nine are Android platform projects
-and are listed in `pending-projects.md`; the tenth is this manifest repository
-itself. They are intentionally absent from `default.xml`.
+The nine Android platform projects that are not active are listed in
+`pending-projects.md`. Seven remain empty on GitHub. Three now have local
+commits but are still not active because their remotes are empty and the
+commits are unpushed:
 
-No kernel source is present in the workspace. The kernel repository is an empty
-clone; a staging attempt was withdrawn because the external C45/C46 source
-contains private-key PEM files. It cannot be an active manifest project until a
-source-only import is reviewed, published with owner approval, and pinned. See
-[`KERNEL-IMPORT-BLOCKER.md`](../../docs/integration/KERNEL-IMPORT-BLOCKER.md).
+| Repository | Local commit | State |
+| --- | --- | --- |
+| `android_kernel_ulefone_gq5012bf1` | `c3bd65dcf7e2bf437f01783e120c8e7477cd788a` | `LOCAL_COMMIT_UNPUSHED` |
+| `android_kernel_modules_mediatek_mt6878` | `83adb6057cb20d71ab3cdac100c37910e70f5593` | `LOCAL_COMMIT_UNPUSHED` |
+| `android_kernel_modules_ulefone_gq5012bf1` | `5fd5a2758d525b55bae4e354b32af4ce6c8c23e7` | `LOCAL_COMMIT_UNPUSHED` |
+
+[`local-development.xml`](local-development.xml) is a local ledger for those
+commits. It is intentionally not included by `default.xml` and is not a
+remotely syncable manifest.
+
+The C47 kernel import is a source snapshot with replayed C45/C46 patch commits;
+both private-key PEM files were excluded. It cannot be an active manifest
+project until it is reviewed, published with owner approval, and the pinned
+commit is verified reachable from GitHub. See
+[`C47-RESULTS.md`](../../docs/integration/C47-RESULTS.md).
 
 ## Using the manifest later
 
