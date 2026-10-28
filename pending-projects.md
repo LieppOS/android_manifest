@@ -60,6 +60,25 @@ the MediaTek vendor SELinux policy is resolved. See
 `docs/integration/C53-SOONG-BUILD-RECOVERY.md` in the LieppOS workspace and
 `research/ulefone-gq5012bf1/campaigns/c53-soong-build-recovery/`.
 
+## C54 vendor payload/SELinux integration (not published)
+
+| Repository | Local branch | Local commit | Parent | Change |
+| --- | --- | --- | --- | --- |
+| `android_device_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `9bb55ae5cf998147a4e83b01e755563669f0c2dc` | `a36009aeff8cb0547c84c5b21d0775d95d0a5f5f` | Curated 2,970-entry vendor manifest (2,652 installed, 318 `EXTRACT_ONLY`); modem/audio/camera/GPU/TEE/SELinux analysis additions; Android 17 source `wpa_supplicant` selected |
+| `android_vendor_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `f9606328d6486ac6051800a28d89eaad4f87e045` | `1810485a1a3790fd2703bf4a0c4996e07df8d7ee` | Regenerated vendor configuration; 778 MB `vendor.img` and 15 MB `vendor_dlkm.img` built locally; proprietary payload remains gitignored |
+
+C54 supersedes C53's 62-source partial payload with a 1.991 GB local curated
+payload. `m nothing`, `m vendorimage` and `m vendor_dlkmimage` pass; the C52
+VINTF contract passes against both stock and rebuilt vendor metadata with the
+stock ODM manifest. C54 is not a full ROM: 318 entries are `EXTRACT_ONLY`, 198
+stock vendor files remain deliberately unselected (100 MB camera tuning DB,
+401 MB calibration data, 2 keybox files, face-only models, overlays and debug
+tools), the stock Android 15 `34.0` vendor SELinux policy could not be
+integrated into Android 17 `202604`, and vendor-only linker closure still has
+215 unresolved `NEEDED` references. See
+`research/ulefone-gq5012bf1/campaigns/c54-vendor-selinux-integration/` and
+`docs/integration/C54-VENDOR-SELINUX-INTEGRATION.md` in the LieppOS workspace.
+
 ## Superseded C47 local commits
 
 The C47 source-import commits remain in the local development repositories but

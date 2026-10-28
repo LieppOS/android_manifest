@@ -55,14 +55,14 @@
       name="android_kernel_modules_ulefone_gq5012bf1"
       revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f" />
 
-  <!-- C52/C53 local device/vendor integration -->
+  <!-- C52/C54 local device/vendor integration -->
   <project
       path="device/ulefone/gq5012bf1"
       name="android_device_ulefone_gq5012bf1"
-      revision="a36009aeff8cb0547c84c5b21d0775d95d0a5f5f" />
+      revision="9bb55ae5cf998147a4e83b01e755563669f0c2dc" />
 
   <project
       path="vendor/ulefone/gq5012bf1"
       name="android_vendor_ulefone_gq5012bf1"
-      revision="1810485a1a3790fd2703bf4a0c4996e07df8d7ee" />
+      revision="f9606328d6486ac6051800a28d89eaad4f87e045" />
 </manifest>
