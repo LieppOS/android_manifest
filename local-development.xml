@@ -12,6 +12,13 @@
   is configuration-only: its proprietary/ payload is gitignored and must be
   extracted locally from the owner stock dump.
 
+  C53 local build recovery. The device and vendor revisions below are further
+  LOCAL-ONLY commits on integration/c52-device-vendor. C53 recovered the
+  Android 17 Soong product build, removed duplicate stock-vendor install paths,
+  and keeps the stock vendor partition authoritative at runtime. The vendor
+  commit remains configuration-only; its payload is extracted locally and is
+  not complete.
+
     kernel   27a31fbc  <- 5e7efb0d <- 53944a0a (C50)
                        <- 188eae96 <- e62fd25e (C49) <- d0feaaee (C48, published)
     mediatek cbc7ea9e  <- 9a3c6ef7 (C50) <- 16690470 (C49) <- 82b5cbcb (C48, published)
@@ -48,14 +55,14 @@
       name="android_kernel_modules_ulefone_gq5012bf1"
       revision="0e00dda7f53fedd8b83092aca5c3b96542bf255f" />
 
-  <!-- C52 local device/vendor integration -->
+  <!-- C52/C53 local device/vendor integration -->
   <project
       path="device/ulefone/gq5012bf1"
       name="android_device_ulefone_gq5012bf1"
-      revision="ad24a166f22fa58e742f1e49b0904df4ddd961c5" />
+      revision="a36009aeff8cb0547c84c5b21d0775d95d0a5f5f" />
 
   <project
       path="vendor/ulefone/gq5012bf1"
       name="android_vendor_ulefone_gq5012bf1"
-      revision="2685239653933c48324e2b179475198271090332" />
+      revision="1810485a1a3790fd2703bf4a0c4996e07df8d7ee" />
 </manifest>

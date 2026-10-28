@@ -47,6 +47,19 @@ Neither commit is reachable from GitHub. The vendor repository remote is empty,
 so the vendor path is not remotely syncable. See
 `docs/integration/C52-DEVICE-VENDOR-INTEGRATION.md` in the LieppOS workspace.
 
+## C53 recovered Android 17 build (not published)
+
+| Repository | Local branch | Local commit | Parent | Change |
+| --- | --- | --- | --- | --- |
+| `android_device_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `a36009aeff8cb0547c84c5b21d0775d95d0a5f5f` | `ad24a166f22fa58e742f1e49b0904df4ddd961c5` | Recovered the Android 17 product build: init_boot header v4, AVB test-key inputs, unavailable-module removal, stock-vendor `EXTRACT_ONLY` staging, build-time VINTF sepolicy split |
+| `android_vendor_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `1810485a1a3790fd2703bf4a0c4996e07df8d7ee` | `2685239653933c48324e2b179475198271090332` | Regenerated configuration; duplicate stock/AOSP install paths removed; proprietary payload remains gitignored |
+
+C53 did not push, build a full ROM, or touch the phone. The extracted vendor
+payload is partial (62 sources), and a rebuilt vendor image remains unsafe until
+the MediaTek vendor SELinux policy is resolved. See
+`docs/integration/C53-SOONG-BUILD-RECOVERY.md` in the LieppOS workspace and
+`research/ulefone-gq5012bf1/campaigns/c53-soong-build-recovery/`.
+
 ## Superseded C47 local commits
 
 The C47 source-import commits remain in the local development repositories but
