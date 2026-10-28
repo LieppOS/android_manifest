@@ -52,7 +52,7 @@
   <project
       path="device/ulefone/gq5012bf1"
       name="android_device_ulefone_gq5012bf1"
-      revision="158ec06a1b0b163d0c2ee2b0c0582743f4c07430" />
+      revision="ad24a166f22fa58e742f1e49b0904df4ddd961c5" />
 
   <project
       path="vendor/ulefone/gq5012bf1"

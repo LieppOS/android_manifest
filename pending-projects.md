@@ -40,7 +40,7 @@ reachable from GitHub and must not appear in `default.xml` or
 
 | Repository | Local branch | Local commit | Parent | Change |
 | --- | --- | --- | --- | --- |
-| `android_device_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `158ec06a1b0b163d0c2ee2b0c0582743f4c07430` | `58e7e2d1` (published `master`) | Android 17 product evaluation, stock-vendor compatibility matrix and VNDK 34, stock vbmeta split, disabled C51 vibrator exclusions |
+| `android_device_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `ad24a166f22fa58e742f1e49b0904df4ddd961c5` | `58e7e2d1` (published `master`) | Android 17 product evaluation, stock-vendor compatibility matrix and VNDK 34, stock vbmeta split, disabled C51 vibrator exclusions, Android 14/15 legacy-gate fix |
 | `android_vendor_ulefone_gq5012bf1` | `integration/c52-device-vendor` | `2685239653933c48324e2b179475198271090332` | none (unborn `main`) | Generated vendor configuration only; proprietary payload gitignored |
 
 Neither commit is reachable from GitHub. The vendor repository remote is empty,
