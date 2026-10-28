@@ -70,11 +70,11 @@ sanitized C48 commits on their remote `publication/c48` branches (verified with
 | `android_kernel_modules_mediatek_mt6878` | `82b5cbcbf4c54da198c01fa04c9dc6e92319e3af` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT` |
 | `android_kernel_modules_ulefone_gq5012bf1` | `0e00dda7f53fedd8b83092aca5c3b96542bf255f` | `PUBLISHED_BRANCH_NOT_IN_DEFAULT_PARTIAL` |
 
-[`local-development.xml`](local-development.xml) is the local ledger. Since C49
-it pins the **local-only** C49 kernel (`188eae96`) and MediaTek mirror
-(`16690470`) commits that add the MediaTek vendor module sources. It is
-intentionally not included by `default.xml` and is not a remotely syncable
-manifest.
+[`local-development.xml`](local-development.xml) is the local ledger. It pins
+the **local-only** C49/C50 kernel (`27a31fbc`) and MediaTek mirror (`cbc7ea9e`)
+commits that add the MediaTek vendor module sources and the independently
+written gen4m TKIP MIC. It is intentionally not included by `default.xml` and is
+not a remotely syncable manifest.
 
 The C47 source import was a snapshot with replayed C45/C46 patch commits. Its
 history is not published because it contains a non-redistributable FPSGO private

@@ -22,18 +22,19 @@ The `android_manifest` repository itself is also empty on GitHub. The local
 bootstrap manifest, `local-development.xml` and `publication-candidate.xml` are
 local commits and have not been pushed.
 
-## C49 local source integration (not published)
+## C49/C50 local source integration (not published)
 
 | Repository | Local branch | Local commit | Parent (published) | Change |
 | --- | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `integration/c49-hardware-source-expansion` | `188eae962d2f6d6664cfaea0aca2b0d867f05668` | `d0feaaee` | `e62fd25e` vendor module snapshot + `188eae96` closure fix and `tools/ulefone/gq5012bf1/{import,build}-vendor-modules.py` |
-| `android_kernel_modules_mediatek_mt6878` | `integration/c49-hardware-source-expansion` | `16690470fe640b241cd16d20e2ecb3babfcaef11` | `82b5cbcb` | Mirrors `vendor/mediatek/kernel_modules` from kernel `188eae96` |
+| `android_kernel_ulefone_gq5012bf1` | `integration/c49-hardware-source-expansion` | `27a31fbc7a70b13efd74b50721147e44f8914e84` | `d0feaaee` | C49 `e62fd25e`, `188eae96` (vendor modules); C50 `53944a0a` (independent gen4m TKIP MIC + tests), `5e7efb0d` (gen4m build), `27a31fbc` (hostap licence notice) |
+| `android_kernel_modules_mediatek_mt6878` | `integration/c49-hardware-source-expansion` | `cbc7ea9e2fd70d8136a7a8976b863a6d1b28127c` | `82b5cbcb` | Mirrors `vendor/mediatek/kernel_modules` from kernel `27a31fbc` (C49 `16690470`, C50 `9a3c6efa`, `cbc7ea9e`) |
 | `android_kernel_modules_ulefone_gq5012bf1` | — | `0e00dda7` (unchanged) | — | No Ulefone-owned source changed |
 
 These commits are recorded only in `local-development.xml`. They are not
 reachable from GitHub and must not appear in `default.xml` or
 `publication-candidate.xml` until they are pushed and verified. See
-`docs/integration/C49-SOURCE-INTEGRATION.md` in the LieppOS workspace.
+`docs/integration/C49-SOURCE-INTEGRATION.md` and
+`docs/integration/C50-PUBLICATION-READINESS.md` in the LieppOS workspace.
 
 ## Superseded C47 local commits
 

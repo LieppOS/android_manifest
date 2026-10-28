@@ -2,24 +2,27 @@
 <!--
   LieppOS LOCAL DEVELOPMENT ledger, not an active or remotely syncable manifest.
 
-  C49 local source integration. The kernel and MediaTek mirror revisions below
-  are LOCAL-ONLY commits on integration/c49-hardware-source-expansion; they are
-  not reachable from GitHub. The Ulefone mirror revision is the published C48
-  commit (no Ulefone-owned source changed in C49).
+  C49/C50 local source integration. The kernel and MediaTek mirror revisions
+  below are LOCAL-ONLY commits on integration/c49-hardware-source-expansion;
+  they are not reachable from GitHub. The Ulefone mirror revision is the
+  published C48 commit (no Ulefone-owned source changed in C49 or C50).
 
-    kernel   188eae96  <- e62fd25e <- d0feaaee (C48, published publication/c48)
-    mediatek 16690470  <- 82b5cbcb (C48, published publication/c48)
+    kernel   27a31fbc  <- 5e7efb0d <- 53944a0a (C50)
+                       <- 188eae96 <- e62fd25e (C49) <- d0feaaee (C48, published)
+    mediatek cbc7ea9e  <- 9a3c6efa (C50) <- 16690470 (C49) <- 82b5cbcb (C48, published)
     ulefone  0e00dda7  (C48, published publication/c48)
 
-  C49 adds vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met} to the
-  kernel and to the MediaTek mirror. The published C48 pins remain in
-  publication-candidate.xml.
+  C49 adds vendor/mediatek/kernel_modules/{gpu,connectivity,mtkcam,met};
+  C50 adds the LieppOS independent gen4m mgmt/tkip_mic.c (builds
+  wlan_drv_gen4m_6878.ko) and the hostap licence notice. The published C48
+  pins remain in publication-candidate.xml.
 
   This file is deliberately NOT included by default.xml. Do not publish or use
   it as an active manifest until the owner approves the exact publication
   transaction and the commits are pushed and verified reachable.
 
-  See pending-projects.md and docs/integration/C49-SOURCE-INTEGRATION.md.
+  See pending-projects.md, docs/integration/C49-SOURCE-INTEGRATION.md and
+  docs/integration/C50-PUBLICATION-READINESS.md.
 -->
 <manifest>
   <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
@@ -28,12 +31,12 @@
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="188eae962d2f6d6664cfaea0aca2b0d867f05668" />
+      revision="27a31fbc7a70b13efd74b50721147e44f8914e84" />
 
   <project
       path="kernel/modules/mediatek/mt6878"
       name="android_kernel_modules_mediatek_mt6878"
-      revision="16690470fe640b241cd16d20e2ecb3babfcaef11" />
+      revision="cbc7ea9e2fd70d8136a7a8976b863a6d1b28127c" />
 
   <project
       path="kernel/modules/ulefone/gq5012bf1"
