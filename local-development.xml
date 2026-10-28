@@ -2,30 +2,38 @@
 <!--
   LieppOS LOCAL DEVELOPMENT ledger, not an active or remotely syncable manifest.
 
-  The three kernel commits below exist only in the local workspace. Their GitHub
-  repositories are still empty, so `repo sync` from GitHub cannot resolve them.
-  This file is deliberately NOT included by default.xml. Do not publish or use it
-  as an active manifest until the owner approves publication and the commits are
-  pushed and verified reachable.
+  The revisions below are the C48 sanitized publication-branch commits. They
+  exist only in the local workspace. The GitHub repositories are still empty,
+  so `repo sync` from GitHub cannot resolve them.
 
-  See pending-projects.md and docs/integration/C47-WORKSPACE-INTEGRATION.md.
+  This file is deliberately NOT included by default.xml. Do not publish or use
+  it as an active manifest until the owner approves the exact publication
+  transaction and the commits are pushed and verified reachable.
+
+  The C47 local campaign branch (7a75e19e kernel, 83adb605 MediaTek mirror,
+  5fd5a275 Ulefone mirror) remains the local development record but is not the
+  publication source: its history contains a non-redistributable FPSGO private
+  wrapper, and the Ulefone sources embed vendor firmware/calibration images.
+
+  See pending-projects.md, publication-candidate.xml and
+  docs/integration/C48-MANIFEST-PUBLICATION-PLAN.md.
 -->
 <manifest>
-  <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
+  <remote name="lieppos" fetch="ssh://git@github.com:LieppOS" />
   <default revision="main" remote="lieppos" sync-j="4" />
 
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="7a75e19ebf5d7e4b3876c19f4e77cad385dff4f0" />
+      revision="49773672a57dede7d148a860cd36464ab2efe455" />
 
   <project
       path="kernel/modules/mediatek/mt6878"
       name="android_kernel_modules_mediatek_mt6878"
-      revision="83adb6057cb20d71ab3cdac100c37910e70f5593" />
+      revision="aba3cf54bf64508419045b0aef5b44010a99a167" />
 
   <project
       path="kernel/modules/ulefone/gq5012bf1"
       name="android_kernel_modules_ulefone_gq5012bf1"
-      revision="5fd5a2758d525b55bae4e354b32af4ce6c8c23e7" />
+      revision="d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6" />
 </manifest>

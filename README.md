@@ -10,7 +10,7 @@ top; that upstream revision has not been selected or validated here.
 
 ## Active projects
 
-`default.xml` contains only projects with real commits:
+`default.xml` contains only projects with real, reachable commits:
 
 | Project | Path | Pinned revision |
 | --- | --- | --- |
@@ -20,11 +20,29 @@ top; that upstream revision has not been selected or validated here.
 Remote definition:
 
 ```xml
-<remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
+<remote name="lieppos" fetch="ssh://git@github.com:LieppOS" />
 ```
 
 This uses SSH, not HTTPS. Project `name` values are repository names under the
 `LieppOS` organization.
+
+## C48 publication candidate
+
+`publication-candidate.xml` is the exact intended configuration after owner
+approval and publication. It is **not active** and must not be used until every
+revision is reachable from GitHub.
+
+| Project | Path | Candidate revision | Scope |
+| --- | --- | --- | --- |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `49773672a57dede7d148a860cd36464ab2efe455` | Sanitized core snapshot |
+| `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `aba3cf54bf64508419045b0aef5b44010a99a167` | Sanitized MediaTek mirror |
+| `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6` | Partial board mirror |
+
+The kernel and Ulefone mirrors are **partial**. The proprietary FPSGO private
+wrapper is excluded. Four Ulefone board drivers that embed vendor firmware, logo
+or calibration images are withheld pending a redistribution review:
+`focaltech_touch`, `hynitron`, `tiny_lcd` and `sh366003`. The candidate can
+reproduce the core kernel, panel and `mtk-mmc`, but not a complete device build.
 
 ## Branch and commit policy
 
@@ -42,25 +60,24 @@ This uses SSH, not HTTPS. Project `name` values are repository names under the
 ## Pending projects
 
 The nine Android platform projects that are not active are listed in
-`pending-projects.md`. Seven remain empty on GitHub. Three now have local
-commits but are still not active because their remotes are empty and the
-commits are unpushed:
+`pending-projects.md`. The three kernel/module repositories now have local
+sanitized publication commits, but their remotes are empty:
 
-| Repository | Local commit | State |
+| Repository | Publication commit | State |
 | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `7a75e19ebf5d7e4b3876c19f4e77cad385dff4f0` | `LOCAL_COMMIT_UNPUSHED` |
-| `android_kernel_modules_mediatek_mt6878` | `83adb6057cb20d71ab3cdac100c37910e70f5593` | `LOCAL_COMMIT_UNPUSHED` |
-| `android_kernel_modules_ulefone_gq5012bf1` | `5fd5a2758d525b55bae4e354b32af4ce6c8c23e7` | `LOCAL_COMMIT_UNPUSHED` |
+| `android_kernel_ulefone_gq5012bf1` | `49773672a57dede7d148a860cd36464ab2efe455` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
+| `android_kernel_modules_mediatek_mt6878` | `aba3cf54bf64508419045b0aef5b44010a99a167` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED` |
+| `android_kernel_modules_ulefone_gq5012bf1` | `d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6` | `LOCAL_PUBLICATION_BRANCH_UNPUSHED_PARTIAL` |
 
 [`local-development.xml`](local-development.xml) is a local ledger for those
 commits. It is intentionally not included by `default.xml` and is not a
 remotely syncable manifest.
 
-The C47 kernel import is a source snapshot with replayed C45/C46 patch commits;
-both private-key PEM files were excluded. It cannot be an active manifest
-project until it is reviewed, published with owner approval, and the pinned
-commit is verified reachable from GitHub. See
-[`C47-RESULTS.md`](../../docs/integration/C47-RESULTS.md).
+The C47 source import was a snapshot with replayed C45/C46 patch commits. Its
+history is not published because it contains a non-redistributable FPSGO private
+wrapper and firmware/calibration-bearing board drivers. The C48 branches are new
+root snapshots; no authoritative history was rewritten. See
+[`C48-MANIFEST-PUBLICATION-PLAN.md`](../../docs/integration/C48-MANIFEST-PUBLICATION-PLAN.md).
 
 ## Using the manifest later
 
@@ -77,14 +94,16 @@ No `repo init`, `repo sync`, full Android checkout, or ROM build has been run.
 
 ## Validation
 
-`default.xml` must parse as XML. Every active project revision must be reachable
-from its remote. A local check:
+`default.xml`, `local-development.xml` and `publication-candidate.xml` must parse
+as XML. Every active project revision must be reachable from its remote. A local
+check:
 
 ```sh
 python3 - <<'PY'
 import xml.etree.ElementTree as ET
-ET.parse('default.xml')
-print('XML parse: PASS')
+for name in ('default.xml', 'local-development.xml', 'publication-candidate.xml'):
+    ET.parse(name)
+    print(name, 'XML parse: PASS')
 PY
 ```
 

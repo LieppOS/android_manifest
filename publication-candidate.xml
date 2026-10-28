@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  LieppOS C48 PUBLICATION CANDIDATE - NOT ACTIVE.
+
+  This file is not included by default.xml and must not be used as a remotely
+  syncable manifest until every revision below has been published and verified
+  reachable from GitHub, and the owner has approved the exact transaction.
+
+  The kernel snapshot and both module mirrors are PARTIAL:
+    - the proprietary FPSGO private wrapper is excluded;
+    - four Ulefone board drivers that embed vendor firmware, logo or
+      calibration images are withheld pending a redistribution review.
+  The candidate therefore describes a source-coherent core build, not complete
+  device support. See ../docs/integration/C48-MANIFEST-PUBLICATION-PLAN.md.
+
+  Project paths are disjoint. No GKI source is checked out twice.
+-->
+<manifest>
+  <remote name="lieppos" fetch="ssh://git@github.com:LieppOS" />
+  <default revision="main" remote="lieppos" sync-j="4" />
+
+  <project
+      path="device/ulefone/gq5012bf1"
+      name="android_device_ulefone_gq5012bf1"
+      revision="58e7e2d14f42cdee5988cd335229fae796706004" />
+
+  <project
+      path="vendor/lieppos"
+      name="android_vendor_lieppos"
+      revision="3f0dce0e0c0f4ced71dd0339147ecb454c2fc290" />
+
+  <project
+      path="kernel/ulefone/gq5012bf1"
+      name="android_kernel_ulefone_gq5012bf1"
+      revision="49773672a57dede7d148a860cd36464ab2efe455" />
+
+  <project
+      path="kernel/modules/mediatek/mt6878"
+      name="android_kernel_modules_mediatek_mt6878"
+      revision="aba3cf54bf64508419045b0aef5b44010a99a167" />
+
+  <project
+      path="kernel/modules/ulefone/gq5012bf1"
+      name="android_kernel_modules_ulefone_gq5012bf1"
+      revision="d5f30890ed7a6d60d1fb1aa0f11ddb123dbb4ce6" />
+</manifest>
