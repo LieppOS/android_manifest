@@ -48,7 +48,7 @@ commits are unpushed:
 
 | Repository | Local commit | State |
 | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `c3bd65dcf7e2bf437f01783e120c8e7477cd788a` | `LOCAL_COMMIT_UNPUSHED` |
+| `android_kernel_ulefone_gq5012bf1` | `7a75e19ebf5d7e4b3876c19f4e77cad385dff4f0` | `LOCAL_COMMIT_UNPUSHED` |
 | `android_kernel_modules_mediatek_mt6878` | `83adb6057cb20d71ab3cdac100c37910e70f5593` | `LOCAL_COMMIT_UNPUSHED` |
 | `android_kernel_modules_ulefone_gq5012bf1` | `5fd5a2758d525b55bae4e354b32af4ce6c8c23e7` | `LOCAL_COMMIT_UNPUSHED` |
 

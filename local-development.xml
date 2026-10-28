@@ -17,7 +17,7 @@
   <project
       path="kernel/ulefone/gq5012bf1"
       name="android_kernel_ulefone_gq5012bf1"
-      revision="c3bd65dcf7e2bf437f01783e120c8e7477cd788a" />
+      revision="7a75e19ebf5d7e4b3876c19f4e77cad385dff4f0" />
 
   <project
       path="kernel/modules/mediatek/mt6878"

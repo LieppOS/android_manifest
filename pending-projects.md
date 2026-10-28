@@ -6,7 +6,7 @@ therefore not remotely resolvable.
 
 | Repository | Intended Android path | State | Local commit | Reason |
 | --- | --- | --- | --- | --- |
-| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `LOCAL_COMMIT_UNPUSHED` | `c3bd65dcf7e2bf437f01783e120c8e7477cd788a` | C47 imported the verified C44 source snapshot and replayed the C45/C46 patches, excluding both private-key PEM files; the remote is still empty |
+| `android_kernel_ulefone_gq5012bf1` | `kernel/ulefone/gq5012bf1` | `LOCAL_COMMIT_UNPUSHED` | `7a75e19ebf5d7e4b3876c19f4e77cad385dff4f0` | C47 imported the verified C44 source snapshot and replayed the C45/C46 patches, excluding both private-key PEM files; the remote is still empty |
 | `android_kernel_modules_mediatek_mt6878` | `kernel/modules/mediatek/mt6878` | `LOCAL_COMMIT_UNPUSHED` | `83adb6057cb20d71ab3cdac100c37910e70f5593` | C47 imported a verified MediaTek source mirror with per-file hashes; the remote is still empty |
 | `android_kernel_modules_ulefone_gq5012bf1` | `kernel/modules/ulefone/gq5012bf1` | `LOCAL_COMMIT_UNPUSHED` | `5fd5a2758d525b55bae4e354b32af4ce6c8c23e7` | C47 imported a verified Ulefone board source mirror with per-file hashes; the remote is still empty |
 | `android_hardware_mediatek_mt6878` | `hardware/mediatek/mt6878` | `REMOTE_EMPTY` | — | No verified HAL source imported |
