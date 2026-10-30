@@ -1,6 +1,7 @@
 # LieppOS AI Development Policy
 
-**Version:** 1.0  
+**Version:** 1.1
+
 **Effective:** 2026-10-28  
 **Applies to:** Every AI agent, regardless of provider or model, creating, fixing, reviewing, reverse-engineering, integrating, testing, or documenting LieppOS software.  
 **Canonical location:** `~/LieppOS/manifests/android_manifest/AI-POLICY.md`  
@@ -79,16 +80,24 @@ Published code must accurately disclose its proprietary userspace, firmware, TEE
 - Create ordinary local branches and commits if doing so does not disrupt someone else's active worktree.
 - Run offline validation/builds in authorized paths, consistent with resource constraints.
 
-### Requires explicit scoped owner approval
+### Standing authorization: commit, then push reviewed task work
 
-- Any GitHub push (including creating remote branches or tags), remote merge, release, publication, or settings change.
+The owner authorizes ordinary `git commit` followed immediately by `git push` for each completed, validated, publishable logical change on an agent-owned development branch in an existing LieppOS repository. Do not ask for separate approval for each such commit or normal fast-forward push, including creation of that development branch on the existing verified LieppOS `origin`.
+
+Before committing, verify ownership, branch/HEAD, working/staged changes, existing fetch/push URLs and the entire outgoing commit range. Run relevant validation, review the exact staged changes and reachable unpublished history for secrets, private identifiers, calibration, firmware/blobs, licensing and publication holds. Stage only assigned files. After committing, push only the reviewed branch with an explicit normal refspec, verify its remote SHA and report the branch/URL. Do not automatically merge, rewrite history, push tags, push another agent's active work or push directly to main/master/release branches.
+
+If review, provenance, publication restrictions, authentication, network, remote divergence or branch protection blocks a push, retain the local commit and report **NOT PUSHED** with the specific reason. Never force-push, bypass checks, silently change remotes/visibility, or publish unsafe material to satisfy the routine workflow. The research hold in section 9 remains binding; the owner explicitly chose to retain it while publishing safe source work.
+
+### Requires separate explicit scoped owner approval
+
+- Pushes outside the standing authorization above, remote merges, tags/releases, repository settings changes, or publication of previously restricted material.
 - Force-push, branch deletion, destructive reset/clean, history rewriting or discarding existing work.
 - Changing repository visibility, permissions, remotes, or default branches.
 - Deleting/reorganizing another project's files, moving canonical ownership, or creating new GitHub repositories.
 - Phone access or device-side actions (including read-only ADB when not already authorized), flashing, switching slots, rebooting, recovery, bootloader, AVB or partition writes.
 - Publication of material with unsettled copyright, licensing, privacy, firmware or calibration rights.
 
-**A push approval must be exact:** repository, remote, destination ref, full proposed commit, expected prior remote state, and whether force is permitted. Force is **NO** unless separately and unmistakably authorized. Recheck the remote before push and verify the resulting SHA afterward. A prepared approval packet is not itself approval.
+**Every permitted push must be exact:** determine the repository, verified remote, destination ref, full proposed commit and expected prior remote state before executing it. For routine pushes the standing authorization above supplies permission; extraordinary operations still require separate scoped owner approval. Force is **NO** unless separately and unmistakably authorized. Recheck the remote before push and verify the resulting SHA afterward. A prepared extraordinary-operation approval packet is not itself approval.
 
 Do not automatically commit every local change to `main`/`master`. Use a task branch when appropriate; preserve remote-tracking state and prior local work. Do not run `git reset --hard`, `git clean -fdx`, `git restore .`, force checkout, or equivalent broad destructive actions without explicit approval. Stage only the owned files, review staged diffs, and commit logical milestones.
 
@@ -159,8 +168,8 @@ A task is complete only when:
 3. Original unrelated work and protected paths are unchanged.
 4. The repository is not polluted by task-generated junk; unexpected dirty files are disclosed, never destroyed.
 5. The appropriate research has been recorded or a clearly marked, unmerged handoff is provided because of active ownership.
-6. Local commits are made when appropriate, with exact SHAs; no remote action is implied.
-7. The final report lists changed paths, tests, known limitations, remaining blockers and next action.
+6. Completed, validated, publishable changes are committed and pushed under section 6's standing authorization; blocked pushes remain recoverable locally and are explicitly reported.
+7. The final report lists changed paths, tests, known limitations, remaining blockers, exact local/remote SHAs, push status and destination branch/URL, and next action.
 
 A partial result with precise evidence is preferable to an invented success. No fixed number of reports, folders, commits or test cases is required. Small changes should stay small.
 
