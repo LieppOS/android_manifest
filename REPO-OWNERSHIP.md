@@ -2,10 +2,12 @@
 
 **Version:** 1.0  
 **Effective:** 2026-10-28  
-**Canonical location:** `~/LieppOS/manifests/android_manifest/REPO-OWNERSHIP.md`  
+**Canonical location:** `/home/armol/LieppOS-workspace/LieppOS_kernel/manifests/android_manifest/REPO-OWNERSHIP.md`
 **Companion:** [AI-POLICY.md](AI-POLICY.md)
 
-This is the map of **existing** LieppOS repositories. It does not authorize new repositories, directory reorganizations, or overlapping Git checkout destinations. Paths below are relative to `/home/armol/LieppOS/` unless otherwise indicated.
+This is the map of **existing** LieppOS repositories. It does not authorize new repositories, directory reorganizations, or overlapping Git checkout destinations. Paths below are relative to `/home/armol/LieppOS-workspace/LieppOS_kernel/` unless otherwise indicated.
+
+**Owner workflow (2026-10-31): every listed repository uses `main` as its sole working/default branch. Use its existing canonical checkout with one writer per repository; no task branches, additional worktrees or clones without a fresh explicit owner exception.** Local archival refs preserve obsolete branch tips but are not working branches and must not be published.
 
 ## 1. Existing repositories
 
@@ -61,7 +63,7 @@ Do not assume every example path already exists. Inspect actual workspace state 
 
 ## 4. Parallel agent write ownership
 
-No model has permanent ownership. The **current scoped assignment** decides who may write to a repository or subdirectory. For example:
+No model has permanent ownership. The **current scoped assignment** decides the single writer for each repository on canonical `main`. Coordinate a pause/takeover before another agent writes; parallel work must use different repositories, not separate branches/worktrees of the same repository. For example:
 
 | Concurrent task | Example writable boundary | Others |
 |---|---|---|
@@ -87,10 +89,10 @@ If there is **no legitimate existing owner**, report the architectural gap and p
 
 Phone-specific verified findings belong to:
 
-- Local: `/home/armol/LieppOS/research/ulefone-gq5012bf1/`
+- Local: `/home/armol/LieppOS-workspace/LieppOS_kernel/research/ulefone-gq5012bf1/`
 - GitHub: `LieppOS/LieppOS-ulefone-gq5012bf1-research`
 
-Research publication remains **held** pending a separate owner decision on inherited sensitive history and AFI calibration exposure. A concurrent agent must hand off findings within its existing owned repository rather than writing into another agent's active research checkout.
+Research publication remains **held** pending a separate owner decision on inherited sensitive history and AFI calibration exposure. Latest held research stays on local `main`; public `main` retains only already-approved public history. Do not upload held data to align the two. A concurrent agent must hand off findings within its existing owned repository rather than writing into another agent's active research checkout.
 
 Default protected path: `/home/armol/androido_dalykai/` (including symlink-resolved descendants). Do not access without new specific owner authorization. Historical external workspaces are not additional canonical source owners and are read-only unless separately approved.
 

@@ -1,11 +1,11 @@
 # LieppOS AI Development Policy
 
-**Version:** 1.1
+**Version:** 1.2 (main-only owner workflow, 2026-10-31)
 
 **Effective:** 2026-10-28  
 **Applies to:** Every AI agent, regardless of provider or model, creating, fixing, reviewing, reverse-engineering, integrating, testing, or documenting LieppOS software.  
-**Canonical location:** `~/LieppOS/manifests/android_manifest/AI-POLICY.md`  
-**Companion:** [REPO-OWNERSHIP.md](REPO-OWNERSHIP.md) and workspace-root `~/LieppOS/AGENTS.md`.
+**Canonical location:** `/home/armol/LieppOS-workspace/LieppOS_kernel/manifests/android_manifest/AI-POLICY.md`
+**Companion:** [REPO-OWNERSHIP.md](REPO-OWNERSHIP.md) and the canonical workspace-root `AGENTS.md`.
 
 ## 1. Purpose and authority
 
@@ -17,7 +17,7 @@ The **current on-disk evidence** and actual Git state take precedence over assum
 
 ## 2. Workspace structure and repository ownership
 
-- Canonical workspace: `/home/armol/LieppOS`.
+- Canonical workspace: `/home/armol/LieppOS-workspace/LieppOS_kernel/`. The old `/home/armol/LieppOS` path is obsolete; do not recreate it or aliases.
 - Follow [REPO-OWNERSHIP.md](REPO-OWNERSHIP.md) for existing repository locations and roles.
 - Before creating or editing a permanent file, identify its **single repository owner** and the assigned task scope.
 - Put source in the source-owning repository; device research in the research repository; tools in the existing tools repository; build outputs in the task's existing designated output area.
@@ -77,14 +77,14 @@ Published code must accurately disclose its proprietary userspace, firmware, TEE
 
 - Inspect source and Git history.
 - Create/edit code, tests, and concise documentation.
-- Create ordinary local branches and commits if doing so does not disrupt someone else's active worktree.
+- Work and create reviewed commits on `main` in the existing canonical checkout. Every LieppOS repository uses `main` as its sole working/default branch; do not create task branches, extra worktrees or clones without a fresh explicit owner exception.
 - Run offline validation/builds in authorized paths, consistent with resource constraints.
 
 ### Standing authorization: commit, then push reviewed task work
 
-The owner authorizes ordinary `git commit` followed immediately by `git push` for each completed, validated, publishable logical change on an agent-owned development branch in an existing LieppOS repository. Do not ask for separate approval for each such commit or normal fast-forward push, including creation of that development branch on the existing verified LieppOS `origin`.
+The owner authorizes ordinary `git commit` followed immediately by a non-forced `git push` to `origin/main` for each completed, validated, publishable logical change in an existing LieppOS repository. `main` is explicitly assigned for normal development across all LieppOS repositories and is their GitHub default. Do not ask for separate routine commit/push approval and do not create a task branch instead.
 
-Before committing, verify ownership, branch/HEAD, working/staged changes, existing fetch/push URLs and the entire outgoing commit range. Run relevant validation, review the exact staged changes and reachable unpublished history for secrets, private identifiers, calibration, firmware/blobs, licensing and publication holds. Stage only assigned files. After committing, push only the reviewed branch with an explicit normal refspec, verify its remote SHA and report the branch/URL. Do not automatically merge, rewrite history, push tags, push another agent's active work or push directly to main/master/release branches.
+Before committing, verify exclusive write ownership, `main`/HEAD, working/staged changes, existing fetch/push URLs and the entire outgoing range. Run relevant validation; review staged changes and reachable unpublished history for secrets, identifiers, calibration, firmware/blobs, licensing and publication holds. Stage only assigned files. Push only reviewed `main` with an explicit normal refspec, verify its remote SHA and report its URL. Do not blindly merge old experiments, rewrite history, push tags or interfere with another agent's work. Branch protection still applies; never bypass it.
 
 If review, provenance, publication restrictions, authentication, network, remote divergence or branch protection blocks a push, retain the local commit and report **NOT PUSHED** with the specific reason. Never force-push, bypass checks, silently change remotes/visibility, or publish unsafe material to satisfy the routine workflow. The research hold in section 9 remains binding; the owner explicitly chose to retain it while publishing safe source work.
 
@@ -99,13 +99,13 @@ If review, provenance, publication restrictions, authentication, network, remote
 
 **Every permitted push must be exact:** determine the repository, verified remote, destination ref, full proposed commit and expected prior remote state before executing it. For routine pushes the standing authorization above supplies permission; extraordinary operations still require separate scoped owner approval. Force is **NO** unless separately and unmistakably authorized. Recheck the remote before push and verify the resulting SHA afterward. A prepared extraordinary-operation approval packet is not itself approval.
 
-Do not automatically commit every local change to `main`/`master`. Use a task branch when appropriate; preserve remote-tracking state and prior local work. Do not run `git reset --hard`, `git clean -fdx`, `git restore .`, force checkout, or equivalent broad destructive actions without explicit approval. Stage only the owned files, review staged diffs, and commit logical milestones.
+Do not blindly commit every pending change. Review completed work and integrate it on `main`; preserve unfinished work and uncertain deletions. Do not use task branches as a workaround. The owner's 2026-10-31 migration authorization permits local non-branch archival refs, removal of obsolete local/remote branch names and archival realignment of obsolete local mirror `main` refs; it does not permit force-pushes or publishing the archival refs. Routine destructive reset/clean, history rewriting, archive deletion and broad cleanup remain unauthorized. Never use `git push --mirror`.
 
 ## 7. Multiple AI agents and model handoff
 
 - Ownership belongs to a **task, repository and path**, never permanently to DeepSeek, Claude, or Codex.
-- Different agents may work concurrently only on non-overlapping writable paths/worktrees.
-- Another agent's assigned tree is read-only. Do not change its branch, index, files, build output, locks, or commits.
+- Keep one writer per repository on canonical `main`. Parallel agents may write different repositories, not independent branches/worktrees of the same repository.
+- Another agent's assigned tree is read-only until that agent finishes or pauses and ownership is coordinated. Do not change its branch, index, files, build output, locks or commits without an authorized takeover.
 - Before taking over an interrupted task, inspect the actual repository state; continue from its existing partial work and commits rather than restarting.
 - If paths overlap, stop the conflicting write; continue safe read-only analysis or prepare a patch/handoff in already approved ownership. Do not create a random workspace as a workaround.
 - An agent that becomes unavailable must leave recoverable local commits or unchanged uncommitted work and a concise status report.
@@ -140,14 +140,14 @@ Do not equate `DONE` in a reverse-engineering folder with complete ROM support. 
 
 All newly **verified** information about Ulefone Armor 29 Pro Thermal / GQ5012BF1 must enter the canonical research repository:
 
-`/home/armol/LieppOS/research/ulefone-gq5012bf1`  
+`/home/armol/LieppOS-workspace/LieppOS_kernel/research/ulefone-gq5012bf1`
 Remote: `LieppOS/LieppOS-ulefone-gq5012bf1-research`
 
-Keep the publication hold on that repository until the inherited sensitive history and AFI calibration exposure have a separately approved resolution. **Do not push research by default.**
+Keep the publication hold until inherited sensitive history and AFI calibration exposure have a separately approved resolution. **Do not push held research.** Latest held work uses local `main`; public `main` retains only already-approved public history. Report this intentional local/public difference; never force-push or publish unsafe material to make the SHAs agree.
 
 If another agent owns the research checkout, create only a concise research-ready handoff **inside your already assigned repository**, clearly mark it as not yet integrated, and identify where it should be applied. Do not create another research clone or overwrite a concurrent branch.
 
-Keep one authoritative record per fact/artifact. Prefer updating an existing report to creating numbered copies. Source commits belong to source repositories; research findings, reproducible evidence and source maps belong to research. Maintain `~/LieppOS/inventory/subsystems.csv` only when assigned authority to edit it. Distinguish observations, inferences, hypotheses, and unresolved questions. Avoid documenting private absolute paths when relative paths suffice.
+Keep one authoritative record per fact/artifact. Prefer updating an existing report to creating numbered copies. Source commits belong to source repositories; research findings, reproducible evidence and source maps belong to research. Maintain the canonical workspace's `inventory/subsystems.csv` only when assigned authority to edit it. Distinguish observations, inferences, hypotheses, and unresolved questions. Avoid documenting private absolute paths when relative paths suffice.
 
 ## 10. Workspace cleanliness and storage
 
