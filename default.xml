@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
   LieppOS supplemental Android manifest.
-  This is not a complete Android platform manifest. It pins only projects that
-  have real, reachable commits and a confirmed path in the Android build root.
-  Empty repositories are intentionally excluded; see pending-projects.md.
+  This is not a complete Android platform manifest. Active projects follow
+  their reviewed main branches under the owner-directed main-only workflow.
+  Initialization-only repositories remain excluded; see pending-projects.md.
 -->
 <manifest>
   <remote name="lieppos" fetch="ssh://git@github.com/LieppOS" />
@@ -12,10 +12,10 @@
   <project
       path="device/ulefone/gq5012bf1"
       name="android_device_ulefone_gq5012bf1"
-      revision="58e7e2d14f42cdee5988cd335229fae796706004" />
+      revision="main" />
 
   <project
       path="vendor/lieppos"
       name="android_vendor_lieppos"
-      revision="3f0dce0e0c0f4ced71dd0339147ecb454c2fc290" />
+      revision="main" />
 </manifest>

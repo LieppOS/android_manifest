@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  LieppOS LOCAL DEVELOPMENT ledger, not an active or remotely syncable manifest.
+  Historical LOCAL DEVELOPMENT input ledger; not an active manifest.
+
+  Main-only workflow, 2026-10-31: use canonical main for current development.
+  The immutable pins below are retained as historical build inputs, and their
+  approved descendants are now published on main. The remaining campaign text
+  records the publication state AT THAT TIME, not the current branch layout.
+  Private proprietary payloads remain outside Git. See README.md and AI-POLICY.md.
 
   C49/C50 local source integration. The kernel and MediaTek mirror revisions
   below are LOCAL-ONLY commits on integration/c49-hardware-source-expansion;
